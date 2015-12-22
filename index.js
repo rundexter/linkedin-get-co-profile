@@ -39,6 +39,9 @@ module.exports = {
         if (!linkedIn)
             return this.fail('A [linkedin_access_token] environment need for this module.');
 
+        if (!inputs.id)
+            this.fail('A [id] need for this module');
+
         linkedIn.companies.company(inputs.id, function(err, data) {
             if (err)
                 this.fail(err);
