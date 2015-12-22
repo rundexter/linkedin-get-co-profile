@@ -4,7 +4,6 @@ var Linkedin = require('node-linkedin')(),
 
 var pickInputs = {
         'id': 'id',
-        'name': 'name',
         'additional_fields': { key: 'additional_fields', type: 'array' }
     };
 

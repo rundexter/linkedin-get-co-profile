@@ -12,8 +12,7 @@ linkedin_access_token | Yes | Access Token
 
 ### Creating credentials
 
-To use this module, you must have a Google spreadsheet with oAuth
-credentials established.  To accomplish this, follow these steps:
+STEPS:
 
 1. Create linkedIn application
 1. Get access token (https://developer.linkedin.com/docs/oauth2#ux)
