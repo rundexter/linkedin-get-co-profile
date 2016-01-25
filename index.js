@@ -8,24 +8,6 @@ var pickInputs = {
     };
 
 module.exports = {
-
-    /**
-     * Authorize module.
-     *
-     * @param dexter
-     * @returns {*}
-     */
-    authModule: function (dexter) {
-        var accessToken = dexter.environment('linkedin_access_token');
-
-        if (accessToken)
-            return Linkedin.init(accessToken);
-
-        else
-            return false;
-    },
-
-
     /**
      * The main entry point for the Dexter module
      *
