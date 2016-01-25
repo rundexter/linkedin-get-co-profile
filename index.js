@@ -3,7 +3,7 @@ var Linkedin = require('node-linkedin')(),
     util = require('./util.js');
 
 var pickInputs = {
-        'id': 'id',
+        { key: 'id', validate: { req: true } },
         'additional_fields': { key: 'additional_fields', type: 'array' }
     };
 
@@ -33,22 +33,16 @@ module.exports = {
      * @param {AppData} dexter Container for all data used in this workflow.
      */
     run: function(step, dexter) {
-        var linkedIn = this.authModule(dexter),
-            inputs = util.pickStringInputs(step, pickInputs);
+        var linkedIn = Linkedin.init(dexter.provider('linkedin').credentials('access_token')),
+            inputs = util.pickInputs(step, pickInputs),
+            validateErrors = util.checkValidateErrors(inputs, pickInputs);
 
-        if (!linkedIn)
-            return this.fail('A [linkedin_access_token] environment need for this module.');
-
-        if (!inputs.id)
-            this.fail('A [id] need for this module');
+        if (validateErrors)
+            return this.fail(validateErrors);
 
         linkedIn.companies.company(inputs.id, function(err, data) {
-            if (err)
-                this.fail(err);
-
-            else if (data.errorCode !== undefined)
-                this.fail(data.message || 'Error Code'.concat(data.errorCode));
-
+            if (err || (data && data.errorCode !== undefined))
+                this.fail(err || (data.message || 'Error Code: '.concat(data.errorCode)));
             else
                 this.complete(_.merge(_.pick(data, ['id', 'name']), { additional_fields: _.pick(data, inputs.additional_fields) }));
 

@@ -28,6 +28,12 @@
             "title":"Additional Fields"
         }
     ],
+    "providers": [{
+        "name": "linkedin",
+        "scopes": [
+            "rw_company_admin"
+        ]
+    }],
     "icon": "linkedin",
     "title": "LinkedIn Get Company Profile" /* Required.A display name for the module */
 }
