@@ -1,13 +1,17 @@
 {
-  "name": "linkedin-get-company-profile",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "author": "Alexander",
-  "license": "ISC",
-  "private": true,
-  "dependencies": {
-    "lodash": "^3.10.1",
-    "node-linkedin": "^0.5.3"
-  }
+   "name": "linkedin-get-company-profile",
+   "version": "0.0.1",
+   "description": "Get profile information about the company specified by the {id} value in the request",
+   "main": "index.js",
+   "author": "Run Dexter, Inc",
+   "license": "MIT",
+   "private": true,
+   "dependencies": {
+      "lodash": "^3.10.1",
+      "node-linkedin": "^0.5.3"
+   },
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/rundexter/linkedin-get-co-profile"
+   }
 }

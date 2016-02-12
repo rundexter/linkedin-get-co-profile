@@ -1,4 +1,5 @@
 # LinkedIn Get Company Profile
+Get profile information about the company specified by the {id} value in the request
 
 ### DOCS
 https://developer.linkedin.com/docs/company-pages#company_profile
